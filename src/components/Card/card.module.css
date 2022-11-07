@@ -1,0 +1,42 @@
+.card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+.image {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+.image_wrapper {
+    height: 75%;
+    overflow: hidden;
+}
+.title {
+    color: var(--color-link);
+    line-height: 1.65;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #123;
+    font-size: 11px;
+    line-height: 17px;
+}
+
+.kind {
+
+}
+.year {
+
+}

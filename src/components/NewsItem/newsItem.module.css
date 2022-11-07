@@ -1,0 +1,51 @@
+.item {
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.imageContainer {
+    width: 100%;
+    padding: 56% 0 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.imageContainer.noImage {
+    background-color: #eee;
+}
+.imageContainer.noImage > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #909090;
+    font-size: 20px;
+}
+.image {
+    width: 100%;
+    position: absolute;
+    top: -17%;
+}
+.topics {
+    margin-bottom: 8px;
+}
+.topics div + div {
+    margin-left: 8px;
+}
+.title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    font-size: 15px;
+    max-height: 46.5px;
+    line-height: 1.55;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    color: #123;
+    font-family: var(--font-alt);
+    font-weight: 600;
+}
+

@@ -1,0 +1,100 @@
+.page {
+    width: 100%;
+    overflow: hidden;
+}
+.track {
+    width: 100%;
+    position: relative;
+    display: flex;
+    transition: all 0.3s;
+}
+.list {
+    width: 100%;
+}
+.filter {
+    padding-left: 30px;
+    position: absolute;
+    transform: translateX(100%);
+    width: 250px;
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
+    max-height: 100%;
+}
+.track.filterOn {
+    transform: translateX(-250px);
+}
+
+.descr {
+    position: relative;
+    margin-bottom: 20px;
+}
+.descr h1 {
+    display: inline-block;
+    color: var(--color-headline);
+    font-family: var(--font-alt);
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+.descr p {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.65;
+    margin: 2px 0 2px 1px;
+}
+.filterButton {
+    position: absolute;
+    background-color: #fff;
+    margin-top: 30px;
+    border-radius: 8px;
+    padding: 4px 4px 4px 24px;
+    cursor: pointer;
+    border: 1px solid var(--color-dropdown-bg);
+    right: -20px;
+    top: 0;
+    transform: rotate(-90deg);
+}
+.filterButton::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url("../../images/svg/arrow-right.black.svg") no-repeat;
+    background-size: contain;
+    rotate: -90deg;
+}
+.filterButton.active::before {
+    rotate: 90deg;
+}
+
+@media (min-width: 768px) {
+    .descr h1 {
+        font-size: 30px;
+    }
+    .descr p {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .list {
+        width: 80%;
+    }
+    .filter {
+        width: 20%;
+        position: initial;
+        transform: initial;
+        padding-left: 10px;
+        min-width: initial;
+        overflow-y: initial;
+    }
+    .filterButton {
+        display: none;
+    }
+    .track.filterOn {
+        transform: translateX(0);
+    }
+}

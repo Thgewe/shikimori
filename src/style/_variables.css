@@ -1,0 +1,35 @@
+
+
+:root {
+
+    /* colors */
+    --color-header: #343434;
+    --color-dropdown-bg: #4e5257;
+    --color-text-white: #f6f8f9;
+    --color-headline: #123;
+
+    --wrapper-padding: 1rem 0.625rem 0 0.625rem;
+
+    --header-height: 46px;
+
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1280px;
+
+    --test-color: blue;
+    --color-link: #176093;
+
+    --z-index-shade: 10;
+
+    --font-main: Helvetica Neue, Arial, Verdana, sans-serif;
+    --font-alt: Open Sans, Helvetica Neue, Arial, Verdana, sans-serif;
+}
+@media (min-width: 768px) {
+    :root {
+
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --wrapper-padding: 1rem 1rem 0 1rem;
+    }
+}

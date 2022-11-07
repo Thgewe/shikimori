@@ -1,0 +1,17 @@
+.topic {
+    background-color: #678;
+    border: 1px solid #637384;
+    color: #fff;
+    cursor: default;
+    display: inline-block;
+    font-family: var(--font-alt);
+    font-size: 12px;
+    letter-spacing: -0.13px;
+    line-height: 1.4;
+    padding: 0 5px;
+    text-align: center;
+}
+.topic.orange {
+    background-color: #ff8a3c;
+    border: 1px solid #ff8534;
+}

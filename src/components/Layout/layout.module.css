@@ -1,0 +1,19 @@
+.layout {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url("../../images/png/square_bg.png") repeat;
+}
+.header {
+    background-color: var(--color-header);
+    /*width: 100%;*/
+}
+.main {
+    flex: 2;
+    width: 100%;
+    padding: var(--wrapper-padding);
+    max-width: 1200px;
+    align-self: center;
+    background-color: #fff;
+}

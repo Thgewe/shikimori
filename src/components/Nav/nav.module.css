@@ -1,0 +1,59 @@
+.nav {
+    color: #fff;
+    font-family: var(--font-alt);
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+.group > a {
+    text-decoration: none;
+    color: var(--color-text-white);
+    font-size: 16px;
+    line-height: 48px;
+    display: flex;
+}
+.group > a:hover {
+    background-color: var(--color-text-white);
+    color: var(--color-dropdown-bg);
+}
+.group > a::before {
+    display: block;
+    width: 80px;
+    text-align: center;
+}
+.group > a:nth-child(2)::before {
+    content: 'アニメ';
+}
+.group > a:nth-child(3)::before {
+    content: 'マンガ';
+}
+.group > a:nth-child(4)::before {
+    content: 'ラノベ';
+}
+
+.title {
+    margin-top: 8px;
+    padding: 0 15px 0 10px;
+    font-size: 11px;
+    line-height: 26px;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+
+@media (min-width: 768px) {
+    .title {
+        margin-top: 3px;
+        font-size: 10px;
+        line-height: 24px;
+    }
+    .group > a {
+        font-size: 13px;
+        height: 38px;
+        line-height: 38px;
+    }
+    .group > a::before {
+        width: 70px;
+    }
+}

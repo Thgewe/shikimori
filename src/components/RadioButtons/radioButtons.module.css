@@ -1,0 +1,60 @@
+.buttons {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1px 3px 0 3px;
+    margin: 1px 0 2px;
+    /*overflow: hidden;*/
+}
+.fake {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #999999;
+    order: -1;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.fake::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    background-color: #999999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.2s;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+.btn > input {
+    display: none;
+}
+.btn > input:checked + .fake::before {
+    opacity: 100;
+}
+.label {
+    cursor: pointer;
+    user-select: none;
+    line-height: 30px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #555555;
+    font-family: helvetica,arial,sans-serif;
+}
+
+@media (min-width: 1024px) {
+    .label {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}

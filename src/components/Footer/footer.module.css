@@ -1,0 +1,9 @@
+.footer {
+    padding: 5px;
+    font-size: 12px;
+    font-family: var(--font-alt);
+}
+.footer a {
+    text-decoration: none;
+    color: var(--color-link);
+}

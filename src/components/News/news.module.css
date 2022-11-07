@@ -1,0 +1,43 @@
+.news {
+
+}
+
+.heading {
+    color: #ff8a3c;
+    background-color: #ffe8d8;
+    border-left: 5px solid #ffd5b8;
+    padding: 6px 12px;
+    line-height: 20px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.heading.all {
+    content: 'ЕЩЕ НОВОСТИ';
+    background-color: #e9f7fb;
+    color: #81cfea;
+    border-left-color: #d7f0f8;
+}
+.list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+}
+
+@media (min-width: 481px) {
+    .list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+    }
+
+}
+@media (min-width: 768px) {
+    .list {
+        column-gap: 50px;
+        row-gap: 48px;
+    }
+}
+@media (min-width: 1024px) {
+    .list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

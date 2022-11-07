@@ -1,0 +1,138 @@
+.search {
+    width: 100%;
+}
+
+.input {
+    background-color: var(--color-dropdown-bg);
+    width: 100%;
+    padding: 13px 10px;
+    position: relative;
+    /*margin-left: 10px;*/
+    /*margin-right: 10px;*/
+}
+
+.input input {
+    background: #fff;
+    border-radius: 2px;
+    border: 0;
+    color: #123;
+    font-size: 16px;
+    line-height: 28px;
+    padding: 1px 42px 0 38px;
+    text-overflow: ellipsis;
+    width: 100%;
+    outline: 0;
+    font-family: var(--font-alt);
+}
+.search input::placeholder {
+    font-family: var(--font-alt);
+    color: #aaaaaa;
+}
+
+.leftSvg {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    height: 29px;
+    width: 40px;
+}
+.leftSvg::before {
+    content: '';
+    background: url("../../images/svg/magnifying-glass-blue.svg") no-repeat center;
+    background-size: contain;
+    display: block;
+    height: 100%;
+    width: 18px;
+    margin: 0 auto;
+}
+
+.clear {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    width: 40px;
+    height: 30px;
+}
+.clear::before {
+    content: '';
+    background: url("../../images/svg/cross.svg") no-repeat center;
+    background-size: contain;
+    display: block;
+    height: 100%;
+    width: 22px;
+    margin: 0 auto;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.category input {
+    width: 0;
+    height: 0;
+}
+.category label {
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(43,138,204,0.2);
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+.category label::before {
+    content: '';
+    background-color: transparent;
+    display: block;
+    height: 31px;
+    width: 5px;
+    margin: 5px 15px 5px 10px;
+}
+
+.category input:checked + label {
+    background: linear-gradient(270deg, rgba(43,138,204,0.2) 0%, rgba(43,138,204,0) 100%),rgba(43,138,204,0.01);
+    border-top: 1px solid #1d78b7;
+    border-bottom: 1px solid #1d78b7;
+}
+.category input:checked + label::before {
+    background-color: #125991;
+}
+
+@media (min-width: 1024px) {
+    .input {
+        background-color: transparent;
+        width: 100%;
+        padding: 9px 0;
+        position: relative;
+        /*margin-left: 10px;*/
+        /*margin-right: 10px;*/
+    }
+    .leftSvg {
+        position: absolute;
+        top: 9px;
+        left: 0;
+        height: 29px;
+        width: 40px;
+    }
+    .leftSvg::before {
+        background: url("../../images/svg/magnifying-glass-black.svg") no-repeat center;
+        background-size: contain;
+    }
+    .clear {
+        position: absolute;
+        right: 0;
+        top: 9px;
+        width: 40px;
+        height: 30px;
+    }
+    .category {
+        display: none;
+    }
+    .search.active .category{
+        display: flex;
+    }
+    /*.search:has(.input > input:focus) > .category {*/
+    /*    display: flex;*/
+    /*}*/
+}

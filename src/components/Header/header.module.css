@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    background-color: var(--color-header);
+    height: var(--header-height);
+    z-index: calc(var(--z-index-shade) + 1);
+    font-family: var(--font-alt);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    height: 100%;
+}
+
+.kanji {
+    display: none;
+}
+
+.logo {
+    background: url('../../images/svg/logo.svg') no-repeat;
+    background-size: contain;
+    height: 19px;
+    width: 151px;
+}
+
+.searchBtn {
+    order: 3;
+    margin-left: auto;
+    padding: 1px 12px 0;
+    cursor: pointer;
+}
+.searchBtn::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: var(--header-height);
+    background: url("../../images/svg/magnifying-glass.svg") center no-repeat;
+    background-size: contain;
+    color: red;
+}
+
+.searchField {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: var(--header-height);
+    left: 0;
+    height: fit-content;
+    z-index: calc(var(--z-index-shade) + 1)
+}
+.header.searchpanel .searchField {
+    display: block;
+}
+
+@media (min-width: 768px) {
+
+    .header {
+        padding: 0 8px 0 8px;
+    }
+
+    .burger {
+        order: 2;
+    }
+
+    .logoContainer {
+        margin-right: 25px;
+    }
+
+    .kanji {
+        display: block;
+        background: url('../../images/svg/kanji.svg') no-repeat;
+        background-size: contain;
+        height: 26px;
+        width: 26px;
+        margin-right: 5px;
+    }
+}
+@media (min-width: 1024px) {
+    .searchBtn {
+        display: none;
+    }
+    .searchField {
+        display: block;
+        position: initial;
+        min-width: 226px;
+        max-width: 1000px;
+        height: var(--header-height);
+        margin-left: 10px;
+        margin-right: 10px;
+        order: 3;
+    }
+}

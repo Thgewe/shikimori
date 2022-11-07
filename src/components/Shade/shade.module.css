@@ -1,0 +1,20 @@
+.shade {
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: var(--z-index-shade);
+}
+
+.shade.active {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .shade.active.drop {
+        display: none;
+    }
+}
