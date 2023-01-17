@@ -2,6 +2,13 @@
     cursor: pointer;
     text-decoration: none;
     display: block;
+    transition: box-shadow 0.4s;
+    padding: 5px;
+}
+.item:hover {
+    -webkit-box-shadow: 0 0 51px 0 rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0 0 51px 0 rgba(34, 60, 80, 0.2);
+    box-shadow: 0 0 51px 0 rgba(34, 60, 80, 0.2);
 }
 
 .imageContainer {

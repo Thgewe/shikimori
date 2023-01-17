@@ -3,12 +3,13 @@ import cl from './card.module.css';
 import {API_IMAGE_URL} from "../../utils/constants";
 import {Link} from "react-router-dom";
 import {whatKind} from "../../utils/kind";
+import {TShikimoriKindOfProduct} from "../../models/ShikimoriTypes";
 
 interface CardProps {
     id: number,
     title: string,
-    kind: string,
-    aired_on: string,
+    kind: TShikimoriKindOfProduct,
+    aired_on: string | null,
     image: string,
     path: string,
 }
@@ -29,7 +30,7 @@ const Card: FC<CardProps> = ({
             <div className={cl.title}>{title}</div>
             <div className={cl.bottom}>
                 <div className={cl.kind}>{whatKind(kind)}</div>
-                <div className={cl.year}>{new Date(aired_on).getFullYear()}</div>
+                {aired_on ? <div className={cl.year}>{new Date(aired_on).getFullYear()}</div> : null}
             </div>
         </Link>
     );

@@ -24,14 +24,11 @@ const CardList: FC<CardListProps> = memo(({items, type, loading, changePage}) =>
         }
     }, 1200)
 
-    const removeListener = () => {
-        window.removeEventListener('scroll', scrollHandler)
-    }
     useEffect(() => {
 
         window.addEventListener('scroll', scrollHandler)
         return () => {
-            removeListener()
+            window.removeEventListener('scroll', scrollHandler)
         }
     }, [])
 

@@ -1,12 +1,13 @@
+import {TShikimoriKindOfProduct} from "../models/ShikimoriTypes";
 
-/* Converts "kind" received from the api and converts it to the appropriate form */
+/**
+ * Based on the passed, raw "kind", returns a user-friendly string.
+ * @param kind {TShikimoriKindOfProduct}
+ */
 
-export const whatKind = (kind: string) => {
-
+export const whatKind = (kind: TShikimoriKindOfProduct) => {
     let str: string;
     switch(kind) {
-        // tv, movie, ova, ona, special, music, tv_13, tv_24, tv_48
-        // manga, manhwa, manhua, light_novel, novel, one_shot, doujin
         case 'tv':
             str = 'TV Сериал'
             break;

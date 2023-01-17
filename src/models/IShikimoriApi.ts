@@ -1,3 +1,5 @@
+import {TShikimoriKindOfProduct} from "./ShikimoriTypes";
+
 interface IDefault {
     id: number,
     name: string,
@@ -11,9 +13,10 @@ export interface IAnime extends IShortAnime {
     english: string[],
     japanese: string[],
     synonyms: string[],
+    licensors: string[],
     license_name_ru: null | string,
     duration: number,
-    description: string,
+    description: string | null,
     description_html: string,
     description_source: string | null,
     franchise: string,
@@ -23,8 +26,8 @@ export interface IAnime extends IShortAnime {
     thread_id: number,
     topic_id: number,
     myanimelist_id: number,
-    rates_scores_stats: IRatesScoreStats[],
-    rates_statuses_stats: IRatesStatusesStats[],
+    rates_scores_stats: IRatesStats[],
+    rates_statuses_stats: IRatesStats[],
     updated_at: string,
     next_episode_at: null | string,
     genres: IGenre[],
@@ -33,7 +36,7 @@ export interface IAnime extends IShortAnime {
     screenshots: IScreenshot[],
     user_rate: null | string,
 }
-interface IStudio {
+export interface IStudio {
     id: number,
     name: string,
     filtered_name: string,
@@ -55,12 +58,12 @@ interface IScreenshot {
 }
 
 export interface IShortAnime extends IDefault {
-    kind: string, // 'tv' | 'movie' | 'ova' | 'ona' | 'special' | 'music' | 'tv_13' | 'tv_24' | 'tv_48'
+    kind: TShikimoriKindOfProduct, // 'tv' | 'movie' | 'ova' | 'ona' | 'special' | 'music' | 'tv_13' | 'tv_24' | 'tv_48'
     score: string,
     status: string, // 'anons' | 'ongoing' | 'released'
     episodes: number,
     episodes_aired: number,
-    aired_on: string,
+    aired_on: null | string,
     released_on: null | string,
 }
 
@@ -110,22 +113,22 @@ export interface IManga extends IShortManga {
     thread_id: number,
     topic_id: number,
     myanimelist_id: number,
-    rates_scores_stats: IRatesScoreStats[],
-    rates_statuses_stats: IRatesStatusesStats[],
+    rates_scores_stats: IRatesStats[],
+    rates_statuses_stats: IRatesStats[],
     genres: IGenre[],
     publishers: IPublishers[],
     user_rate: string
 }
 
-interface IRatesScoreStats {
-    name: number,
+export interface IRatesStats {
+    name: number | string,
     value: number,
 }
-interface IRatesStatusesStats {
-    name: string,
-    value: number,
-}
-interface IGenre {
+// interface IRatesStatusesStats {
+//     name: string,
+//     value: number,
+// }
+export interface IGenre {
     id: number,
     name: string,
     russian: string,
@@ -137,7 +140,7 @@ interface IPublishers {
 }
 
 export interface IShortManga extends IDefault {
-    kind: string,
+    kind: TShikimoriKindOfProduct,
     score: string,
     status: string,
     volumes: number,
@@ -151,7 +154,7 @@ interface IMangaWithCharacter extends IShortManga {
 }
 
 export interface IShortRanobe extends IDefault {
-    kind: string,
+    kind: TShikimoriKindOfProduct,
     score: string,
     status: string,
     volumes: number,
@@ -175,8 +178,8 @@ export interface IRanobe extends IShortRanobe {
     thread_id: number,
     topic_id: number,
     myanimelist_id: number,
-    rates_scores_stats: IRatesScoreStats[],
-    rates_statuses_stats: IRatesStatusesStats[],
+    rates_scores_stats: IRatesStats[],
+    rates_statuses_stats: IRatesStats[],
     genres: IGenre[],
     publishers: string[],
     user_rate: null | string,
@@ -229,4 +232,18 @@ export interface IComments {
     is_summary: boolean,
     can_be_edited: boolean,
     user: IUser,
+}
+
+export interface IRelated {
+    relation: string,
+    relation_russian: string,
+    anime: IShortAnime,
+    manga: IShortManga,
+}
+
+export interface IRoles {
+    roles: string[],
+    roles_russian: string[],
+    character: null | IDefault,
+    person: null | IDefault,
 }

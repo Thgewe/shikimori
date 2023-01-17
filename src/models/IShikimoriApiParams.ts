@@ -28,3 +28,7 @@ export interface IAnimeListParams extends IParamsDefault {
     status: string,
     rating?: string,
 }
+export interface IListOfNewsParams {
+    page: number,
+    limit: number,
+}

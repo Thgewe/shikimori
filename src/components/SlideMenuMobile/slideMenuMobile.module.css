@@ -1,0 +1,67 @@
+.track {
+    width: 100%;
+    position: relative;
+    display: flex;
+    transition: all 0.3s;
+
+}
+.left {
+
+}
+.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-left: 30px;
+    height: 100%;
+}
+.menuButton {
+    position: absolute;
+    z-index: 9;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 4px 4px 4px 24px;
+    cursor: pointer;
+    border: 1px solid var(--color-dropdown-bg);
+    right: 0;
+    top: 0;
+    transform: rotate(-90deg) translate(60%, 20px);
+    transition: transform 0.3s;
+    user-select: none;
+}
+.menuButton::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url("../../images/svg/arrow-right.black.svg") no-repeat;
+    background-size: contain;
+    rotate: -90deg;
+}
+.menuButton.active::before {
+    rotate: 90deg;
+}
+
+@media (min-width: 1024px) {
+    .menuButton {
+        display: none;
+    }
+    .track {
+        gap: 10px;
+        transform: translate(0, 0) !important;
+    }
+    .left {
+        width: 80%;
+    }
+    .right {
+        width: 20% !important;
+        position: initial;
+        right: unset;
+        left: unset;
+        height: unset;
+        padding-left: 0;
+        transform: translate(0, 0) !important;
+    }
+}

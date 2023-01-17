@@ -5,11 +5,11 @@ export const useFetch = (callback: Function): [Function, boolean, string] => {
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
 
-    const fetching: Function = async () => {
+    const fetching: Function = async (...args: any) => {
         try {
             setError('')
             setLoading(true)
-            await callback()
+            await callback(...args)
         } catch(e) {
             setLoading(false)
             if (typeof e === 'string') {

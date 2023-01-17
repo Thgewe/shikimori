@@ -1,0 +1,10 @@
+.list {
+    width: 100%;
+    min-width: 0;
+}
+.show {
+    color: #333333;
+    cursor: pointer;
+    margin: 2px 0 10px 5px;
+    font-size: 11px;
+}

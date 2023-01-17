@@ -1,0 +1,31 @@
+.rates {
+    display: grid;
+    grid-template-columns: auto min-content;
+    column-gap: 10px;
+    row-gap: 1px;
+    margin-bottom: 10px;
+}
+.rates > *:nth-child(1) {
+    grid-column: 1/-1;
+}
+.left {
+    text-align: right;
+    color: white;
+    cursor: default;
+    float: right;
+    font-size: 11px;
+    line-height: 16px;
+    padding-right: 3px;
+}
+.right {
+    text-align: right;
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+    float: right;
+    line-height: 16px;
+}
+.right.string {
+    font-weight: normal;
+    font-size: 11px;
+}

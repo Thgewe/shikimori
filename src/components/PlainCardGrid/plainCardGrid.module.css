@@ -1,0 +1,39 @@
+.block {
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 4%;
+    row-gap: 30px;
+}
+.card {
+    min-width: 0;
+    text-decoration: none;
+}
+.name {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--color-link);
+    line-height: 1.65;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.card img {
+    width: 100%;
+}
+
+@media (min-width: 481px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}

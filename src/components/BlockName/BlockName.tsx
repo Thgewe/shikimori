@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import cl from './blockName.module.css';
 
 interface BlockNameProps {
-    type: 'news' | 'more news' | 'comments' | 'filter' | 'onTheScreens',
+    type: 'news' | 'more news' | 'comments' | 'filter' | 'onTheScreens' | 'default',
     text?: string,
 }
 
@@ -33,6 +33,10 @@ const BlockName: FC<BlockNameProps> = ({type, text= ''}) => {
         case 'onTheScreens':
             obj.className += ' ' + cl.onTheScreens
             obj.content = 'СЕЙЧАС НА ЭКРАНАХ'
+            break;
+        case 'default':
+            obj.className += ' ' + cl.default
+            obj.content = text
             break;
     }
 

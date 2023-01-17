@@ -9,6 +9,7 @@ import Topic from "../../components/Topic/Topic";
 import {getTimeSpan, timePassed} from "../../utils/time";
 import Slider from "../../components/Slider/Slider";
 import Comments from "../../components/Comments/Comments";
+import PageHeadline from "../../components/PageHeadline/PageHeadline";
 
 // TODO: fullscreen slider
 
@@ -53,7 +54,7 @@ const NewsByIdPage: FC = () => {
     if (loading) return <Loader />
     return (
         <div className={cl.page}>
-            <h1 className={cl.heading}><Link title={'Обновить страницу'} to={'.'}>{news?.topic_title}</Link></h1>
+            <PageHeadline titleRu={news?.topic_title ? news.topic_title : ''} />
             <div className={cl.author}>
                 <div className={cl.avatar}>
                     <img className={cl.image} src={news?.user.avatar} alt="user avatar"/>

@@ -48,10 +48,11 @@ const NewsItem: FC<NewsItemProps> = ({
         })
     }
 
-    if (!linked) {
-        topics.push('анонс')
-    }
+    // if (!linked) {
+    //     topics.push('анонс')
+    // }
     checkTitle(
+        'анонс',
         'трейлер',
         'опенинг',
         'эндинг',

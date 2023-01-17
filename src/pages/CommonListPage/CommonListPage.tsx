@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
+import React, {FC, SetStateAction, useCallback, useEffect, useRef, useState} from 'react';
 import {IShortAnime, IShortManga, IShortRanobe} from "../../models/IShikimoriApi";
 import ShikimoriApi from "../../API/ShikimoriApi";
 import {useFetch} from "../../hooks/useFetch";
@@ -13,11 +13,9 @@ interface CommonListPageProps {
 
 const CommonListPage: FC<CommonListPageProps> = ({type}) => {
 
-    const [animes, setAnimes] = useState<IShortAnime[]>([])
-    const [mangas, setMangas] = useState<IShortManga[]>([])
-    const [ranobe, setRanobe] = useState<IShortRanobe[]>([])
+    const [all, setAll] = useState<IShortAnime[] | IShortManga[] | IShortRanobe[]>([])
     const filterMenu = useRef<HTMLDivElement>(null)
-    const parameters = useRef({
+    const parameters = useRef<IFilterParams>({
         page: 1,
         limit: 20,
         order: 'ranked',
@@ -35,15 +33,21 @@ const CommonListPage: FC<CommonListPageProps> = ({type}) => {
         switch (type) {
             case "animes":
                 const animeRes = await shiki.getListOfAnime(parameters.current)
-                parameters.current.page === 1 ? setAnimes(animeRes) : setAnimes(prevState => [...prevState, ...animeRes])
+                if (animeRes.length > parameters.current.limit - 1)
+                    animeRes.pop()
+                parameters.current.page === 1 ? setAll(animeRes) : setAll((prevState) => [...prevState as IShortAnime[], ...animeRes])
                 break;
             case "mangas":
                 const mangaRes = await shiki.getListOfManga(parameters.current)
-                parameters.current.page === 1 ? setMangas(mangaRes) : setMangas(prevState => [...prevState, ...mangaRes])
+                if (mangaRes.length > parameters.current.limit - 1)
+                    mangaRes.pop()
+                parameters.current.page === 1 ? setAll(mangaRes) : setAll(prevState => [...prevState as IShortManga[], ...mangaRes])
                 break;
             case "ranobe":
                 const ranobeRes = await shiki.getListOfRanobe(parameters.current)
-                parameters.current.page === 1 ? setRanobe(ranobeRes) : setRanobe(prevState => [...prevState, ...ranobeRes])
+                if (ranobeRes.length > parameters.current.limit - 1)
+                    ranobeRes.pop()
+                parameters.current.page === 1 ? setAll(ranobeRes) : setAll(prevState => [...prevState as IShortRanobe[], ...ranobeRes])
                 break;
         }
     })
@@ -92,12 +96,7 @@ const CommonListPage: FC<CommonListPageProps> = ({type}) => {
             <div className={cl.track} ref={filterMenu}>
                 <section className={cl.list}>
                     <CardList
-                        items={type === 'animes'
-                            ? animes
-                            : type === 'mangas'
-                                ? mangas
-                                : ranobe
-                        }
+                        items={all}
                         type={type}
                         changePage={changePage}
                         loading={loading}

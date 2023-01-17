@@ -62,6 +62,7 @@ const CardSlider: FC<CardSliderProps> = ({cards}) => {
             >
                 {cards.map((card) => <SliderCard
                         id={card.id}
+                        key={card.id}
                         title={card.name}
                         image={card.image.preview}
                         path={'/animes/'}

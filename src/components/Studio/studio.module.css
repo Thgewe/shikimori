@@ -1,0 +1,13 @@
+.studio {
+
+}
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.images img {
+    max-width: 230px;
+}

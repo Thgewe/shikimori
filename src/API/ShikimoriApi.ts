@@ -4,13 +4,13 @@ import {
     IAnime,
     ICharacter, IComments,
     IManga,
-    IRanobe,
+    IRanobe, IRelated, IRoles,
     IShortAnime,
     IShortCharacter,
     IShortManga,
     IShortRanobe, ITopicNews
 } from "../models/IShikimoriApi";
-import {IAnimeListParams} from "../models/IShikimoriApiParams";
+import {IAnimeListParams, IListOfNewsParams} from "../models/IShikimoriApiParams";
 import {IFilterParams} from "../models/IFilterParams";
 
 class ShikimoriApi {
@@ -92,10 +92,10 @@ class ShikimoriApi {
         const res = await axios.get(this._apiBase + 'ranobe/' + id)
         return res.data as IRanobe
     }
-    static async getListOfNews(limit: number = 10) {
+    static async getListOfNews(params: IListOfNewsParams) {
         const res = await axios.get(this._apiBase + 'topics', {
             params: {
-                limit,
+                ...params,
                 forum: 'news'
             }
         })
@@ -105,6 +105,8 @@ class ShikimoriApi {
         const res = await axios.get(this._apiBase + 'topics/' + id)
         return res.data as ITopicNews
     }
+
+    //TODO: comments pagination
     static async getCommentsByIdAndTopic(id: number, topic: string = 'Topic') {
         const res = await axios.get(this._apiBase + 'comments', {
             params: {
@@ -114,6 +116,14 @@ class ShikimoriApi {
             }
         })
         return res.data as IComments[]
+    }
+    static async getRelatedById(id: number, category: 'mangas' | 'animes' | 'ranobe') {
+        const res = await axios.get(this._apiBase + category + '/' + id  + '/related')
+        return res.data as IRelated[]
+    }
+    static async getRolesById(id: number, category: 'mangas' | 'animes' | 'ranobe') {
+        const res = await axios.get(this._apiBase + category + '/' + id + '/roles')
+        return res.data as IRoles[]
     }
 }
 

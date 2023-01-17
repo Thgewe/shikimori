@@ -1,0 +1,39 @@
+.page {
+
+}
+.main {
+    display: grid;
+}
+.mainImage {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 516px) {
+    .main {
+        grid-template-columns: min-content auto;
+        column-gap: 20px;
+    }
+    .mainImage {
+        grid-row: 1/3;
+    }
+    .descr {
+        grid-column: 3/-3;
+    }
+}
+@media (min-width: 768px) {
+    .main {
+        grid-template-columns: min-content auto min-content;
+        column-gap: 20px;
+    }
+    .mainImage {
+        grid-row: 1/4;
+    }
+    .descr {
+        grid-column: 4/-4;
+    }
+    .second {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+    }
+}
