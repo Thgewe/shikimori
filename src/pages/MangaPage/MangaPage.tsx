@@ -6,7 +6,7 @@ import cl from './mangaPage.module.css';
 const MangaPage: FC = () => {
     return (
         <div>
-
+            Пока пусто
         </div>
     );
 };

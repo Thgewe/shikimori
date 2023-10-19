@@ -6,7 +6,7 @@ import cl from './ranobePage.module.css';
 const RanobePage: FC = () => {
     return (
         <div>
-
+            Пока пусто
         </div>
     );
 };

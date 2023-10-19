@@ -6,7 +6,7 @@ import cl from './userPage.module.css';
 const UserPage: FC = () => {
     return (
         <div>
-            users
+            Пока пусто
         </div>
     );
 };

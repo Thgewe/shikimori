@@ -6,7 +6,7 @@ import cl from './characterPage.module.css';
 const CharacterPage: FC = () => {
     return (
         <div>
-
+            Пока пусто
         </div>
     );
 };

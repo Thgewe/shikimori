@@ -10,7 +10,7 @@ const PersonPage: FC = () => {
 
     return (
         <div>
-            {params.id}
+            {"Пока пусто " + params.id}
         </div>
     );
 };
