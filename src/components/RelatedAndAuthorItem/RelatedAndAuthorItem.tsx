@@ -15,7 +15,7 @@ interface IRelatedProps {
     aired_on?: string | null,
     roles?: string[],
     hidden: boolean,
-    category: 'animes' | 'mangas' | 'ranobe',
+    category: 'animes' | 'mangas' | 'ranobe' | 'people',
     showAll: boolean,
 }
 
@@ -42,7 +42,7 @@ const RelatedAndAuthorItem: FC<IRelatedProps> = ({
                 <img src={API_IMAGE_URL + image} alt={name}/>
             </div>
             <div className={cl.info}>
-                <Link className={cl.name} to={'/' + category + '/' + id}>{name}</Link>
+                <Link className={cl.name} to={'/' + (kind ? category : 'people') + '/' + id}>{name}</Link>
                 {kind ? <div className={cl.caption}>{whatKind(kind)}</div> : null}
                 {aired_on ? <div className={cl.caption}>{getDate(aired_on, true)}</div> : null}
                 {relation_ru ? <div className={cl.caption + ' ' + cl.relation}>{relation_ru}</div> : null}

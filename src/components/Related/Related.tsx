@@ -65,7 +65,7 @@ const Related: FC<IRelatedProps> = ({id, category}) => {
             )}
             <div
                 className={cl.show}
-                onClick={() => setShowAll(true)}
+                onClick={() => {setShowAll(true); console.log(related)}}
             >
                 + показать остальное ({related.length - maxItems})
             </div>

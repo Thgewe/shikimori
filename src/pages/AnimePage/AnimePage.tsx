@@ -75,11 +75,11 @@ const AnimePage: FC = () => {
     const [comments, setComments] = useState<IComments[]>([])
 
     const [fetching, loading, error] = useFetch(async () => {
-        const res = await shiki.getAnimeById(+params.id!);
+        const res = await shiki.getAnimeById(+params.id?.replace(/\D/g, '')!);
         setAnime(res);
     })
     const [fetchingRoles, loadingRoles, errorRoles] = useFetch(async() => {
-        const res = await shiki.getRolesById(+params.id!, 'animes')
+        const res = await shiki.getRolesById(+params.id?.replace(/\D/g, '')!, 'animes')
         setRoles(res)
     })
     const [fetchingComments, loadingComments, errorComments] =
@@ -143,7 +143,7 @@ const AnimePage: FC = () => {
                             </div>
                         </div>
                         <div className={cl.second}>
-                            <Related id={+params.id!} category={'animes'} />
+                            <Related id={+params.id?.replace(/\D/g, '')!} category={'animes'} />
                             <Authors
                                 category={'animes'}
                                 loading={loadingRoles}
